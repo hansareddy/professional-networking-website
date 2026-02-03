@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    background-color: #05050A;
+    color: #F9FAFB;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    @apply bg-brand-base text-brand-text antialiased overflow-x-hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+}
+
+/* Architectural Dot Grid Overlay */
+.bg-architectural-grid {
+    background-image: linear-gradient(#ffffff03 1px, transparent 1px), linear-gradient(90deg, #ffffff03 1px, transparent 1px);
+    background-size: 50px 50px;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+}
+
+/* Subtle Text Outline */
+.text-stroke-subtle {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+    color: transparent;
+}
+
+.text-stroke-thick {
+    -webkit-text-stroke: 2px #C1FF00;
+    color: transparent;
+}
+
+/* Hybrid Nisozkit Card - Premium Tech */
+.glass-card-new {
+    @apply bg-[#13131A] border border-white/5 transition-all duration-500 relative overflow-hidden;
+}
+
+.glass-card-new:hover {
+    @apply bg-black border-brand-accent -translate-y-2;
+    box-shadow: 0 20px 50px -10px rgba(193, 255, 0, 0.15);
+}
+
+/* Card Inner Highlight */
+.glass-card-new::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.glass-card-new:hover::before {
+    opacity: 1;
+}
+
+/* Buttons - Direct Response Style */
+.btn-primary {
+    @apply px-10 py-5 bg-brand-accent hover:bg-white text-black font-black uppercase tracking-widest rounded-sm transition-all duration-300 transform hover:-translate-y-1 text-xl inline-flex items-center justify-center gap-2;
+    box-shadow: 5px 5px 0px rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover {
+    box-shadow: 8px 8px 0px rgba(255, 255, 255, 0.4);
+}
+
+.skew-y-3 {
+    transform: skewY(3deg);
+}
+
+.skew-y-negative-3 {
+    transform: skewY(-3deg);
+}
+
+.btn-ghost {
+    @apply px-10 py-5 bg-transparent border border-white/20 hover:border-white text-white font-bold rounded-full transition-all duration-300 hover:bg-white/5 active:scale-95 text-lg inline-flex items-center justify-center;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #05050A;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7C3AED;
+}
