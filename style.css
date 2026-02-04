@@ -108,7 +108,8 @@ nav a:hover::after {
     position: absolute;
     top: 50%;
     left: 0;
-    transform: translateY(-35%) scale(1.6) !important;
+    transform: translateY(-28%) scale(1.75) !important;
+    /* Bumped from 1.6 to 1.75, shifted lower to -28% */
     transform-origin: left center;
     height: 100%;
     width: auto;
@@ -136,7 +137,7 @@ nav a:hover::after {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -35%) scale(1.5) !important;
+    transform: translate(-50%, -28%) scale(1.6) !important;
     height: 100%;
     width: auto;
     object-fit: contain;
@@ -147,7 +148,7 @@ nav a:hover::after {
 
 @media (max-width: 768px) {
     .footer-zoom-img {
-        transform: translate(-50%, -35%) scale(1.5) !important;
+        transform: translate(-50%, -28%) scale(1.6) !important;
         /* Centered on mobile */
     }
 }
@@ -155,7 +156,7 @@ nav a:hover::after {
 @media (min-width: 768px) {
     .footer-zoom-img {
         left: 0;
-        transform: translateY(-35%) scale(1.5) !important;
+        transform: translateY(-28%) scale(1.6) !important;
         /* Left aligned on desktop */
         left: 0;
     }
