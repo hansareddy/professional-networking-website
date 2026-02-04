@@ -3,7 +3,7 @@
    this is a harmless linting issue. These rules are processed by PostCSS.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,8 +15,17 @@
 }
 
 body {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Inter', sans-serif;
     @apply bg-white text-black antialiased overflow-x-hidden scroll-smooth;
+}
+
+p,
+li,
+span,
+a,
+input,
+button {
+    font-family: 'Inter', sans-serif;
 }
 
 h1,
@@ -64,15 +73,128 @@ nav a:hover::after {
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-nav a {
-    @apply text-gray-800 font-extrabold;
-    letter-spacing: 0.05em;
+/* Fresh Navbar Architecture */
+.navbar-fresh {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .navbar-fresh {
+        height: 80px;
+    }
+}
+
+/* The Frame: Maximized to fill the navbar without increasing its height */
+.logo-zoom-frame {
+    height: 62px;
+    width: 320px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .logo-zoom-frame {
+        height: 78px;
+        width: 380px;
+    }
+}
+
+/* The Zoom: Drastically increased and shifted down to crop the bottom */
+.logo-zoom-img {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-20%) scale(1.8);
+    /* Changed from -25% to -20% to move it a little more down */
+    transform-origin: left center;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+
+/* Modern Footer Refinements */
+.footer-zoom-frame {
+    height: 80px;
+    width: 280px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .footer-zoom-frame {
+        height: 100px;
+        width: 320px;
+    }
+}
+
+.footer-zoom-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%) scale(1.6);
+    /* Shifted down like header */
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+    transition: all 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    .footer-zoom-img {
+        transform: translate(-50%, -20%) scale(1.6);
+        /* Centered on mobile */
+    }
+}
+
+@media (min-width: 768px) {
+    .footer-zoom-img {
+        left: 0;
+        transform: translateY(-20%) scale(1.6);
+        /* Left aligned on desktop */
+        left: 0;
+    }
+}
+
+.footer-link {
+    @apply text-gray-400 hover:text-brand-accent transition-all duration-300 relative inline-block;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #B4F708;
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+.footer-title {
+    @apply text-xs font-black uppercase tracking-[0.2em] text-gray-500 mb-6 flex items-center gap-3;
+}
+
+.footer-title::after {
+    content: '';
+    @apply h-px w-8 bg-white/10;
 }
 
 .footer-logo {
-    @apply h-24 w-auto object-contain transition-all duration-500;
+    @apply w-auto object-contain transition-all duration-500;
     filter: brightness(0) invert(1);
-    opacity: 0.7;
+    opacity: 0.9;
 }
 
 .footer-logo:hover {
@@ -95,7 +217,7 @@ nav a {
 
 /* Hybrid King Kong Card - Dark Premium */
 .glass-card-new {
-    @apply bg-[#0A0A0A] border border-white/10 transition-all duration-300 relative overflow-hidden;
+    @apply bg-[#0A0A0A] border border-white/10 transition-all duration-300 relative overflow-hidden rounded-2xl;
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
 }
 
@@ -113,26 +235,31 @@ nav a {
 }
 
 /* Interactive Swap */
-.glass-card-new:hover {
+.glass-card-new:hover,
+.glass-card-new.mobile-snap-active {
     @apply bg-[#111111] -translate-y-2 border-[#B4F708];
     box-shadow: 0 20px 40px -10px rgba(180, 247, 8, 0.1);
     /* Neon Glow Shadow */
 }
 
-.glass-card-new:hover h3 {
+.glass-card-new:hover h3,
+.glass-card-new.mobile-snap-active h3 {
     @apply text-white;
 }
 
-.glass-card-new:hover p {
+.glass-card-new:hover p,
+.glass-card-new.mobile-snap-active p {
     @apply text-gray-300;
 }
 
-.glass-card-new:hover .text-brand-accent {
+.glass-card-new:hover .text-brand-accent,
+.glass-card-new.mobile-snap-active .text-brand-accent {
     color: #B4F708 !important;
 }
 
 /* Force icon to Neon Green on hover */
-.glass-card-new:hover svg {
+.glass-card-new:hover svg,
+.glass-card-new.mobile-snap-active svg {
     @apply text-[#B4F708];
 }
 
@@ -148,20 +275,21 @@ nav a {
     transition: width 0.3s ease;
 }
 
-.glass-card-new:hover::before {
+.glass-card-new:hover::before,
+.glass-card-new.mobile-snap-active::before {
     width: 6px;
     /* Thick Neon Bar on Hover */
 }
 
 /* Buttons - Brutalist Authority Style */
 .btn-primary {
-    @apply px-10 py-5 bg-brand-accent hover:bg-[#D4F844] text-black font-black uppercase tracking-widest rounded-none transition-all duration-200 transform hover:-translate-y-1 text-xl inline-flex items-center justify-center gap-2 border-2 border-black;
+    @apply px-6 py-3 md:px-10 md:py-5 bg-brand-accent hover:bg-[#D4F844] text-black font-black uppercase tracking-widest rounded-xl transition-all duration-200 transform hover:-translate-y-1 text-base md:text-xl inline-flex items-center justify-center gap-2 border-2 border-black;
     box-shadow: 6px 6px 0px 0px #000000;
     /* Hard Shadow */
 }
 
 .btn-primary:hover {
-    box-shadow: 10px 10px 0px 0px #000000;
+    box-shadow: 6px 6px 0px 0px #000000;
 }
 
 .skew-y-3 {
@@ -173,7 +301,7 @@ nav a {
 }
 
 .btn-ghost {
-    @apply px-10 py-5 bg-transparent border border-black/20 hover:border-black text-black font-bold rounded-none transition-all duration-300 hover:bg-black/5 active:scale-95 text-lg inline-flex items-center justify-center;
+    @apply px-6 py-3 md:px-10 md:py-5 bg-transparent border border-black/20 hover:border-black text-black font-bold rounded-xl transition-all duration-300 hover:bg-black/5 active:scale-95 text-base md:text-lg inline-flex items-center justify-center;
 }
 
 /* Custom Scrollbar */
@@ -196,7 +324,7 @@ nav a {
 
 /* Dark Section Utilities */
 .glass-card-dark {
-    @apply bg-[#0A0A0A] border-2 border-white/10 transition-all duration-300 relative overflow-hidden;
+    @apply bg-[#0A0A0A] border-2 border-white/10 transition-all duration-300 relative overflow-hidden rounded-2xl;
 }
 
 .glass-card-dark:hover {

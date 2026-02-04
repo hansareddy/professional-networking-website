@@ -1,22 +1,69 @@
 import './style.css'
 
-// Add scroll effects if needed
 // Add scroll effects
 window.addEventListener('scroll', () => {
     const nav = document.getElementById('main-nav');
     const logo = document.getElementById('nav-logo');
     if (window.scrollY > 20) {
-        nav.classList.add('py-1', 'bg-white/100', 'shadow-2xl');
-        nav.classList.remove('py-2', 'bg-gray-50/95', 'shadow-xl');
-        logo.classList.add('h-14');
-        logo.classList.remove('h-20');
+        nav.classList.add('bg-white/100', 'shadow-2xl');
+        nav.classList.remove('bg-gray-50/95', 'shadow-xl');
+        // nav.classList.add('py-1');
+        // nav.classList.remove('py-2');
+        if (logo) {
+            // logo.classList.add('h-14');
+            // logo.classList.remove('h-20');
+        }
     } else {
-        nav.classList.add('py-2', 'bg-gray-50/95', 'shadow-xl');
-        nav.classList.remove('py-1', 'bg-white/100', 'shadow-2xl');
-        logo.classList.add('h-20');
-        logo.classList.remove('h-14');
+        nav.classList.add('bg-gray-50/95', 'shadow-xl');
+        nav.classList.remove('bg-white/100', 'shadow-2xl');
+        // nav.classList.add('py-4'); // Reset to py-4 matches initial HTML
+        // nav.classList.remove('py-2');
+        if (logo) {
+            // logo.classList.add('h-20');
+            // logo.classList.remove('h-14');
+        }
     }
 });
+
+// Mobile Menu Functionality
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const closeMenuBtn = document.getElementById('close-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+if (mobileMenuBtn && mobileMenu && closeMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('translate-x-full');
+    });
+
+    closeMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+    });
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Close menu when a link is clicked
+            mobileMenu.classList.add('translate-x-full');
+
+            // Handle scroll target if applicable
+            const targetAttr = link.getAttribute('data-target');
+            const hrefAttr = link.getAttribute('href');
+            const targetId = targetAttr || (hrefAttr && hrefAttr.startsWith('#') ? hrefAttr.substring(1) : null);
+
+            if (targetId) {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    // Check if it's the join-container toggle which might need special handling or just scrolling
+                    // For now, let the smooth scroll handler below take care of 'href', 
+                    // but we might need to manually trigger scroll if the default action is prevented by the other listener.
+                    // Actually, the existing smooth scroll listener works on [data-target] and a[href^="#"],
+                    // but since we preventDefault there, we need to ensure the menu closing happens first.
+                    // The menu closing adds the class, which is instant.
+                }
+            }
+        });
+    });
+}
 
 // Reveal on Scroll Observer
 const revealElements = document.querySelectorAll('.reveal');
@@ -73,3 +120,53 @@ document.querySelectorAll('[data-target], a[href^="#"]').forEach(el => {
         }
     });
 });
+
+// Mobile Snap Highlight Logic (Features & Industries)
+const setupMobileSnap = (containerId) => {
+    const container = document.getElementById(containerId);
+    if (container && window.innerWidth < 768) {
+        const mobileCards = container.querySelectorAll('.glass-card-new');
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    mobileCards.forEach(card => card.classList.remove('mobile-snap-active'));
+                    entry.target.classList.add('mobile-snap-active');
+                }
+            });
+        }, {
+            root: container,
+            threshold: 0.6
+        });
+        mobileCards.forEach(card => cardObserver.observe(card));
+    }
+};
+
+// Initialize for both sections
+setupMobileSnap('features-scroll');
+setupMobileSnap('industries-scroll');
+
+// Back to Top Button
+const backToTopBtn = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        if (backToTopBtn) {
+            backToTopBtn.classList.remove('translate-y-24', 'opacity-0');
+            backToTopBtn.classList.add('translate-y-0', 'opacity-100');
+        }
+    } else {
+        if (backToTopBtn) {
+            backToTopBtn.classList.add('translate-y-24', 'opacity-0');
+            backToTopBtn.classList.remove('translate-y-0', 'opacity-100');
+        }
+    }
+});
+
+if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}

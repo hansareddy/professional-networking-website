@@ -8,18 +8,18 @@
     <meta name="description"
         content="Join a growing community of professionals across Australia who connect, collaborate, and help each other navigate careers, business, and life.">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body class="relative bg-brand-base overflow-x-hidden">
     <!-- Navigation -->
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 px-8 py-2 flex justify-between items-center bg-gray-50/95 backdrop-blur-xl border-b-2 border-black/10 transition-all duration-500 transform shadow-xl"
+    <nav class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 bg-gray-50/95 backdrop-blur-xl border-b-2 border-black/10 shadow-xl navbar-fresh"
         id="main-nav">
-        <div class="flex items-center overflow-hidden py-1">
-            <img src="/logo.png" alt="Professional Networking"
-                class="transition-all duration-500 transform scale-[1.7] origin-center translate-y-3 h-20"
-                id="nav-logo">
-        </div>
+        <!-- Logo Zoom Frame -->
+        <a href="#" class="logo-zoom-frame">
+            <img src="logo.png" alt="Professional Networking" class="logo-zoom-img" />
+        </a>
         <div class="hidden md:flex space-x-10 font-bold text-sm uppercase tracking-widest text-gray-600">
             <a href="#about" class="hover:text-brand-accent transition-colors">Mission</a>
             <a href="#features" class="hover:text-brand-accent transition-colors">Features</a>
@@ -27,11 +27,40 @@
             <a href="#community" class="hover:text-brand-accent transition-colors">Community</a>
             <a href="#contact" class="hover:text-brand-accent transition-colors">Contact</a>
         </div>
-        <button data-target="join-container"
-            class="px-5 py-1.5 bg-brand-accent hover:bg-white text-black font-black uppercase tracking-widest rounded-none border-2 border-black transition-all duration-300 transform hover:-translate-y-0.5 text-xs inline-flex items-center justify-center gap-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
-            Login
-        </button>
+        <div class="flex items-center gap-4">
+            <button data-target="join-container"
+                class="hidden md:inline-flex px-5 py-1.5 bg-brand-accent hover:bg-white text-black font-black uppercase tracking-widest rounded-none border-2 border-black transition-all duration-300 transform hover:-translate-y-0.5 text-xs items-center justify-center gap-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
+                Login
+            </button>
+            <button id="mobile-menu-btn"
+                class="md:hidden text-2xl text-black hover:text-brand-accent transition-colors focus:outline-none p-1">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[60] transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center space-y-8 md:hidden">
+        <button id="close-menu-btn" class="absolute top-6 right-8 text-4xl text-black">&times;</button>
+        <a href="#about"
+            class="text-2xl font-black uppercase tracking-widest hover:text-brand-accent transition-colors mobile-link">Mission</a>
+        <a href="#features"
+            class="text-2xl font-black uppercase tracking-widest hover:text-brand-accent transition-colors mobile-link">Features</a>
+        <a href="#industries"
+            class="text-2xl font-black uppercase tracking-widest hover:text-brand-accent transition-colors mobile-link">Industries</a>
+        <a href="#community"
+            class="text-2xl font-black uppercase tracking-widest hover:text-brand-accent transition-colors mobile-link">Community</a>
+        <a href="#contact"
+            class="text-2xl font-black uppercase tracking-widest hover:text-brand-accent transition-colors mobile-link">Contact</a>
+        <button data-target="join-container"
+            class="mobile-link px-8 py-3 bg-brand-accent text-black font-black uppercase tracking-widest border-2 border-black shadow-[4px_4px_0px_0px_black]">
+            Login / Join
+        </button>
+    </div>
 
     <main class="relative z-10">
         <!-- Hero Section -->
@@ -42,22 +71,21 @@
                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-slate-200/50 rounded-full blur-[100px] pointer-events-none z-0 mix-blend-multiply">
             </div>
 
-            <div class="container mx-auto px-6 relative z-20 pt-20">
+            <div class="container mx-auto px-6 relative z-20 pt-20 md:pt-24">
                 <div class="max-w-5xl mx-auto text-center relative z-20">
                     <!-- Branding Tag -->
                     <div
-                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 border border-black/5 text-black text-xs font-bold uppercase tracking-widest mb-10 backdrop-blur-md animate-fade-in">
+                        class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 border border-black/5 text-black text-xs font-bold uppercase tracking-widest mb-10 backdrop-blur-md animate-fade-in">
                         <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
                         The Premier Australian Community
                     </div>
 
-                    <!-- Massive Headline (Joss/Nisozkit Style - Centered) -->
+                    <!-- Massive Headline (Scaled for Mobile) -->
                     <h1
-                        class="text-5xl md:text-7xl lg:text-9xl font-black uppercase tracking-tighter leading-none mb-10 animate-slide-up break-words font-sans">
-                        <span class="block text-black mb-2">Build Meaningful</span>
-                        <span class="block text-black mb-4">Professional</span>
-                        <span class="block text-transparent text-stroke-black"
-                            style="-webkit-text-stroke: 1.5px black;">Connections</span>
+                        class="text-4xl md:text-7xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.9] mb-6 md:mb-10 animate-slide-up break-words font-sans">
+                        <span class="block text-black mb-1 md:mb-2">Build Meaningful</span>
+                        <span class="block text-black mb-2 md:mb-4">Professional</span>
+                        <span class="block text-black">Connections</span>
                     </h1>
 
                     <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed font-light animate-slide-up"
@@ -93,13 +121,14 @@
         </section>
 
         <!-- About & Values Section (Dark Layout) -->
-        <section id="about" class="pb-32 pt-12 relative bg-[#05050A] text-white z-20 reveal">
+        <section id="about" class="pb-16 pt-12 md:pb-32 relative bg-[#05050A] text-white z-20 reveal">
             <div class="container mx-auto px-6">
                 <!-- About Part -->
-                <div class="grid lg:grid-cols-2 gap-20 items-center mb-0 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-0 relative z-10">
                     <div class="relative">
-                        <h2 class="text-6xl md:text-8xl font-black mb-10 leading-[0.85] uppercase tracking-tighter">
-                            Who We <br><span class="text-transparent" style="-webkit-text-stroke: 2px white;">Are</span>
+                        <h2
+                            class="text-4xl md:text-8xl font-black mb-6 md:mb-10 leading-[0.9] uppercase tracking-tighter">
+                            Who We <br><span class="text-white">Are</span>
                         </h2>
                         <div class="space-y-8 text-xl font-bold text-white max-w-lg">
                             <p>
@@ -185,56 +214,60 @@
                 </div>
 
                 <!-- Values Grid (Dark Mode) -->
-                <div class="relative z-20 mt-20">
+                <div class="relative z-20 mt-12 md:mt-20">
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                         <!-- Card 1 -->
-                        <div class="glass-card-dark p-8">
-                            <div class="text-brand-accent mb-6">
-                                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="glass-card-dark p-6 md:p-8">
+                            <div class="text-brand-accent mb-4 md:mb-6">
+                                <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                         d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
                                     </path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold mb-3">Respect</h3>
-                            <p class="text-sm">Professionalism, fairness, and dignity for every member.
+                            <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-3">Respect</h3>
+                            <p class="text-sm text-gray-400">Professionalism, fairness, and dignity for every member.
                             </p>
                         </div>
                         <!-- Card 2 -->
-                        <div class="glass-card-dark p-8">
-                            <div class="text-brand-accent mb-6">
-                                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="glass-card-dark p-6 md:p-8">
+                            <div class="text-brand-accent mb-4 md:mb-6">
+                                <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                         d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
                                     </path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold mb-3">Trust</h3>
-                            <p class="text-sm">Honest communication and genuine intent always.</p>
+                            <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-3">Trust</h3>
+                            <p class="text-sm text-gray-400">Honest communication and genuine intent always.</p>
                         </div>
                         <!-- Card 3 -->
-                        <div class="glass-card-dark p-8">
-                            <div class="text-brand-accent mb-6">
-                                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="glass-card-dark p-6 md:p-8">
+                            <div class="text-brand-accent mb-4 md:mb-6">
+                                <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                         d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
                                     </path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold mb-3">Collaboration</h3>
-                            <p class="text-sm">Working together creates better opportunities.</p>
+                            <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-3">Collaboration</h3>
+                            <p class="text-sm text-gray-400">Working together creates better opportunities.</p>
                         </div>
                         <!-- Card 4 -->
-                        <div class="glass-card-dark p-8">
-                            <div class="text-brand-accent mb-6">
-                                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="glass-card-dark p-6 md:p-8">
+                            <div class="text-brand-accent mb-4 md:mb-6">
+                                <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                         d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
                                     </path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold mb-3">Inclusion</h3>
-                            <p class="text-sm">Open to all industries, cultures, and backgrounds.</p>
+                            <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-3">Inclusion</h3>
+                            <p class="text-sm text-gray-400">Open to all industries, cultures, and backgrounds.</p>
                         </div>
                     </div>
                 </div>
@@ -242,17 +275,17 @@
         </section>
 
         <!-- Why This Exists -->
-        <section class="py-24 relative reveal">
+        <section class="py-16 md:py-24 relative reveal">
             <div class="container mx-auto px-6 text-center max-w-4xl relative z-10">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8">Why This Platform <span
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 md:mb-8">Why This Platform <span
                         class="text-brand-accent">Exists</span></h2>
-                <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                <p class="text-lg md:text-xl text-gray-600 leading-relaxed mb-6 md:mb-8">
                     In today’s fast-changing professional world, many people feel disconnected, unsupported, or unsure
                     where to turn for guidance and opportunities. Professional Networking was created to fill that gap
                     by offering a safe, neutral, and community-led space where people can connect without pressure,
                     sales tactics, or corporate agendas.
                 </p>
-                <p class="text-2xl font-display font-medium text-black">
+                <p class="text-xl md:text-2xl font-display font-medium text-black">
                     Our goal is to grow a trusted network across Australia where professionals help each other succeed —
                     one connection at a time.
                 </p>
@@ -263,18 +296,18 @@
         </section>
 
         <!-- Value Proposition Section -->
-        <section id="value-proposition" class="py-32 bg-[#05050A] text-white relative overflow-hidden reveal">
+        <section id="value-proposition" class="py-16 md:py-32 bg-[#05050A] text-white relative overflow-hidden reveal">
             <!-- Background Nuance -->
             <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-accent/5 rounded-full blur-[120px] -z-10">
             </div>
 
             <div class="container mx-auto px-6">
-                <div class="max-w-4xl mb-20">
-                    <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
+                <div class="max-w-4xl mb-12 md:mb-20">
+                    <h2 class="text-3xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6 md:mb-8">
                         More Than Just <br>
-                        <span class="text-transparent" style="-webkit-text-stroke: 1.5px white;">a Contact List</span>
+                        <span class="text-transparent" style="-webkit-text-stroke: 1px white;">a Contact List</span>
                     </h2>
-                    <p class="text-xl text-gray-400 max-w-2xl font-light">
+                    <p class="text-lg md:text-xl text-gray-400 max-w-2xl font-light">
                         We built this community to bridge the gap between traditional networking and real professional
                         growth.
                     </p>
@@ -330,110 +363,123 @@
         </section>
 
         <!-- What You Can Do (Features) -->
-        <section id="features" class="py-32 relative border-b border-black/5 reveal">
+        <section id="features" class="pt-16 pb-0 md:pt-32 md:pb-10 relative border-b border-black/5 reveal">
             <!-- (Content remains same, but this block is just context for insertion, 
                  actually I will replace the space after features) -->
             <div class="container mx-auto px-6">
                 <!-- Header -->
                 <div class="mb-20 relative">
-                    <h2 class="text-5xl md:text-6xl font-bold mb-6 uppercase tracking-widest">What You Can <span
-                            class="text-black block md:inline">Do Here</span></h2>
-                </div>
+                    <div class="mb-12 md:mb-20 relative">
+                        <h2 class="text-3xl md:text-6xl font-bold mb-6 uppercase tracking-tighter">What You Can <span
+                                class="text-black block md:inline">Do Here</span></h2>
+                    </div>
 
-                <!-- Grid -->
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Feature 1 -->
-                    <div class="glass-card-new p-12 group">
+                    <!-- Grid (Horizontal Scroll on Mobile) -->
+                    <div id="features-scroll"
+                        class="flex overflow-x-auto md:grid md:grid-cols-2 gap-4 md:gap-8 pb-4 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">
+                        <!-- Feature 1 -->
                         <div
-                            class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-10 group-hover:border-brand-accent transition-all duration-500 text-white group-hover:text-brand-accent group-hover:rotate-12 group-hover:scale-110">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                                </path>
-                            </svg>
+                            class="glass-card-new p-6 md:p-12 group w-[85vw] md:w-auto min-h-[250px] md:min-h-0 snap-center h-full flex flex-col justify-between flex-shrink-0">
+                            <div
+                                class="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 flex items-center justify-center mb-6 md:mb-10 group-hover:border-brand-accent transition-all duration-500 text-white group-hover:text-brand-accent group-hover:rotate-12 group-hover:scale-110">
+                                <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl md:text-3xl font-bold mb-3 md:mb-4">Connect</h3>
+                            <p class="text-sm md:text-lg font-light leading-relaxed">Meet professionals from
+                                different
+                                industries. Build relationships that go beyond just exchanging contacts.</p>
                         </div>
-                        <h3 class="text-3xl font-bold mb-4">Connect</h3>
-                        <p class="text-lg font-light leading-relaxed">Meet professionals from
-                            different
-                            industries. Build relationships that go beyond just exchanging contacts.</p>
-                    </div>
-                    <!-- Feature 2 -->
-                    <div class="glass-card-new p-12 group">
+                        <!-- Feature 2 -->
                         <div
-                            class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-10 group-hover:border-brand-accent transition-all duration-500 text-white group-hover:text-brand-accent group-hover:rotate-12 group-hover:scale-110">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                                </path>
-                            </svg>
+                            class="glass-card-new p-6 md:p-12 group w-[85vw] md:w-auto min-h-[250px] md:min-h-0 snap-center h-full flex flex-col justify-between flex-shrink-0">
+                            <div
+                                class="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 flex items-center justify-center mb-6 md:mb-10 group-hover:border-brand-accent transition-all duration-500 text-white group-hover:text-brand-accent group-hover:rotate-12 group-hover:scale-110">
+                                <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl md:text-3xl font-bold mb-3 md:mb-4">Find Opportunities</h3>
+                            <p class="text-sm md:text-lg font-light leading-relaxed">Discover job openings,
+                                freelance
+                                work, and partnerships shared directly by members.</p>
                         </div>
-                        <h3 class="text-3xl font-bold mb-4">Find Opportunities</h3>
-                        <p class="text-lg font-light leading-relaxed">Discover job openings,
-                            freelance
-                            work, and partnerships shared directly by members.</p>
-                    </div>
-                    <!-- Feature 3 -->
-                    <div class="glass-card-new p-12 group">
+                        <!-- Feature 3 -->
                         <div
-                            class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-10 group-hover:border-brand-accent transition-all duration-500 text-white group-hover:text-brand-accent group-hover:rotate-12 group-hover:scale-110">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
-                                </path>
-                            </svg>
+                            class="glass-card-new p-6 md:p-12 group w-[85vw] md:w-auto min-h-[250px] md:min-h-0 snap-center h-full flex flex-col justify-between flex-shrink-0">
+                            <div
+                                class="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 flex items-center justify-center mb-6 md:mb-10 group-hover:border-brand-accent transition-all duration-500 text-white group-hover:text-brand-accent group-hover:rotate-12 group-hover:scale-110">
+                                <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl md:text-3xl font-bold mb-3 md:mb-4">Learn & Share</h3>
+                            <p class="text-sm md:text-lg font-light leading-relaxed">Gain insights from
+                                experienced
+                                professionals. Contribute your own knowledge to help others.</p>
                         </div>
-                        <h3 class="text-3xl font-bold mb-4">Learn & Share</h3>
-                        <p class="text-lg font-light leading-relaxed">Gain insights from
-                            experienced
-                            professionals. Contribute your own knowledge to help others.</p>
-                    </div>
-                    <!-- Feature 4 -->
-                    <div class="glass-card-new p-12 group">
+                        <!-- Feature 4 -->
                         <div
-                            class="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-10 group-hover:border-brand-accent transition-all duration-500 text-white group-hover:text-brand-accent group-hover:rotate-12 group-hover:scale-110">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
-                            </svg>
+                            class="glass-card-new p-6 md:p-12 group w-[85vw] md:w-auto min-h-[250px] md:min-h-0 snap-center h-full flex flex-col justify-between flex-shrink-0">
+                            <div
+                                class="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 flex items-center justify-center mb-6 md:mb-10 group-hover:border-brand-accent transition-all duration-500 text-white group-hover:text-brand-accent group-hover:rotate-12 group-hover:scale-110">
+                                <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl md:text-3xl font-bold mb-3 md:mb-4">Grow Together</h3>
+                            <p class="text-sm md:text-lg font-light leading-relaxed">Support for students, job
+                                seekers, and entrepreneurs on their journey.</p>
                         </div>
-                        <h3 class="text-3xl font-bold mb-4">Grow Together</h3>
-                        <p class="text-lg font-light leading-relaxed">Support for students, job
-                            seekers, and entrepreneurs on their journey.</p>
                     </div>
                 </div>
-            </div>
         </section>
 
         <!-- Explore by Industry Section -->
-        <section id="industries" class="py-32 relative bg-white reveal">
+        <section id="industries" class="pt-8 pb-16 md:pt-10 md:pb-32 relative bg-white reveal">
             <div class="container mx-auto px-6">
                 <!-- Header -->
-                <div class="max-w-4xl mb-20">
-                    <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
+                <div class="max-w-4xl mb-12 md:mb-20">
+                    <h2
+                        class="text-3xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6 md:mb-8 text-black">
                         Connect with <br>
-                        <span class="text-transparent" style="-webkit-text-stroke: 1.5px black;">Leaders Across
-                            Sectors</span>
+                        <span class="bg-brand-accent px-4 inline-block transform -skew-x-6 mr-2">Leaders</span> Across
+                        Sectors
                     </h2>
-                    <p class="text-xl md:text-2xl text-gray-600 max-w-2xl font-light">
+                    <p class="text-lg md:text-2xl text-gray-600 max-w-2xl font-light">
                         Break out of your silo. Our network bridges the gap between diverse professional fields.
                     </p>
                 </div>
 
-                <!-- Expertise Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Expertise Grid (Horizontal Scroll on Mobile) -->
+                <div id="industries-scroll"
+                    class="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 pb-4 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">
                     <!-- Category 1: Technology & Engineering -->
-                    <div class="glass-card-new p-10 group h-full flex flex-col">
+                    <div
+                        class="glass-card-new p-6 md:p-10 group h-full flex flex-col w-[85vw] md:w-auto snap-center flex-shrink-0">
                         <div
-                            class="w-14 h-14 bg-white/5 border border-white/10 flex items-center justify-center rounded-xl mb-8 group-hover:border-brand-accent transition-all duration-300">
-                            <svg class="w-7 h-7 text-white group-hover:text-brand-accent" fill="none"
+                            class="w-12 h-12 md:w-14 md:h-14 bg-white/5 border border-white/10 flex items-center justify-center rounded-xl mb-6 md:mb-8 group-hover:border-brand-accent transition-all duration-300">
+                            <svg class="w-6 h-6 md:w-7 md:h-7 text-white group-hover:text-brand-accent" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                     d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
                                 </path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Technology & Engineering</h3>
-                        <p class="text-gray-400 font-light leading-relaxed mb-6">
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">Technology & Engineering</h3>
+                        <p class="text-gray-400 font-light text-sm md:text-base leading-relaxed mb-4 md:mb-6">
                             Software Development, AI Research, Data Science, and Hardware Engineering.
                         </p>
                         <button data-target="join-container"
@@ -447,18 +493,19 @@
                     </div>
 
                     <!-- Category 2: Creative & Design -->
-                    <div class="glass-card-new p-10 group h-full flex flex-col">
+                    <div
+                        class="glass-card-new p-6 md:p-10 group h-full flex flex-col w-[85vw] md:w-auto snap-center flex-shrink-0">
                         <div
-                            class="w-14 h-14 bg-white/5 border border-white/10 flex items-center justify-center rounded-xl mb-8 group-hover:border-brand-accent transition-all duration-300">
-                            <svg class="w-7 h-7 text-white group-hover:text-brand-accent" fill="none"
+                            class="w-12 h-12 md:w-14 md:h-14 bg-white/5 border border-white/10 flex items-center justify-center rounded-xl mb-6 md:mb-8 group-hover:border-brand-accent transition-all duration-300">
+                            <svg class="w-6 h-6 md:w-7 md:h-7 text-white group-hover:text-brand-accent" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                     d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
                                 </path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Creative & Design</h3>
-                        <p class="text-gray-400 font-light leading-relaxed mb-6">
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">Creative & Design</h3>
+                        <p class="text-gray-400 font-light text-sm md:text-base leading-relaxed mb-4 md:mb-6">
                             UX/UI Design, Product Strategy, Brand Identity, and Digital Media.
                         </p>
                         <button data-target="join-container"
@@ -472,18 +519,19 @@
                     </div>
 
                     <!-- Category 3: Business & Strategy -->
-                    <div class="glass-card-new p-10 group h-full flex flex-col">
+                    <div
+                        class="glass-card-new p-6 md:p-10 group h-full flex flex-col w-[85vw] md:w-auto snap-center flex-shrink-0">
                         <div
-                            class="w-14 h-14 bg-white/5 border border-white/10 flex items-center justify-center rounded-xl mb-8 group-hover:border-brand-accent transition-all duration-300">
-                            <svg class="w-7 h-7 text-white group-hover:text-brand-accent" fill="none"
+                            class="w-12 h-12 md:w-14 md:h-14 bg-white/5 border border-white/10 flex items-center justify-center rounded-xl mb-6 md:mb-8 group-hover:border-brand-accent transition-all duration-300">
+                            <svg class="w-6 h-6 md:w-7 md:h-7 text-white group-hover:text-brand-accent" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                     d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
                                 </path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Business & Strategy</h3>
-                        <p class="text-gray-400 font-light leading-relaxed mb-6">
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">Business & Strategy</h3>
+                        <p class="text-gray-400 font-light text-sm md:text-base leading-relaxed mb-4 md:mb-6">
                             Entrepreneurship, Project Management, Finance, and Consultancy.
                         </p>
                         <button data-target="join-container"
@@ -497,18 +545,19 @@
                     </div>
 
                     <!-- Category 4: Science & Healthcare -->
-                    <div class="glass-card-new p-10 group h-full flex flex-col">
+                    <div
+                        class="glass-card-new p-6 md:p-10 group h-full flex flex-col w-[85vw] md:w-auto snap-center flex-shrink-0">
                         <div
-                            class="w-14 h-14 bg-white/5 border border-white/10 flex items-center justify-center rounded-xl mb-8 group-hover:border-brand-accent transition-all duration-300">
-                            <svg class="w-7 h-7 text-white group-hover:text-brand-accent" fill="none"
+                            class="w-12 h-12 md:w-14 md:h-14 bg-white/5 border border-white/10 flex items-center justify-center rounded-xl mb-6 md:mb-8 group-hover:border-brand-accent transition-all duration-300">
+                            <svg class="w-6 h-6 md:w-7 md:h-7 text-white group-hover:text-brand-accent" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M19.423 15.621a2 2 0 00.394-2.583l-2.047-3.07a2 2 0 00-3.328 0l-2.047 3.07a2 2 0 00.394 2.583m6.628 0l-1.295 1.944a2 2 0 01-3.328 0l-1.295-1.944a2 2 0 01.394-2.583z">
+                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
                                 </path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Science & Healthcare</h3>
-                        <p class="text-gray-400 font-light leading-relaxed mb-6">
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">Science & Healthcare</h3>
+                        <p class="text-gray-400 font-light text-sm md:text-base leading-relaxed mb-4 md:mb-6">
                             Biotechnology, Medical Research, Wellness, and Psychology.
                         </p>
                         <button data-target="join-container"
@@ -531,7 +580,22 @@
                     Trusted by Industry Leaders
                 </p>
                 <div class="relative w-full overflow-hidden mask-gradient-x">
-                    <div class="flex items-center gap-16 animate-marquee whitespace-nowrap">
+                    <div class="grid grid-cols-2 gap-8 md:hidden mb-8">
+                        <!-- Mobile Grid for Partners -->
+                        <div class="flex items-center gap-2 text-gray-400 justify-center">
+                            <span class="text-xl font-black tracking-tighter">TECHCORP</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-400 justify-center">
+                            <span class="text-xl font-black tracking-tighter">INNOVATE</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-400 justify-center">
+                            <span class="text-xl font-black tracking-tighter">FINANCE</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-400 justify-center">
+                            <span class="text-xl font-black tracking-tighter">CREATIVE</span>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex items-center gap-16 animate-marquee whitespace-nowrap">
                         <!-- Logo 1: TechCorp -->
                         <div
                             class="flex items-center gap-2 text-gray-400 hover:text-black transition-colors duration-300">
@@ -623,67 +687,77 @@
         </section>
 
         <!-- What Members Say (Testimonials) -->
-        <section class="py-32 relative bg-gray-50 reveal overflow-hidden">
+        <section class="py-16 md:py-32 relative bg-gray-50 reveal overflow-hidden">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center uppercase tracking-widest">What Members
+                <h2 class="text-3xl md:text-5xl font-bold mb-10 md:mb-16 text-center uppercase tracking-widest">What
+                    Members
                     <span class="text-brand-accent-pink">Say</span>
                 </h2>
 
                 <!-- Scroll Container -->
-                <div class="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-12 -mx-6 px-6 scrollbar-hide">
+                <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-8 pb-12 -mx-6 px-6 scrollbar-hide">
                     <!-- Testimonial 1 -->
                     <div class="min-w-[85%] md:min-w-[400px] snap-center">
-                        <div class="glass-card-new p-10 h-full flex flex-col justify-between">
+                        <div class="glass-card-new p-6 md:p-10 h-full flex flex-col justify-between">
                             <div>
-                                <div class="text-brand-accent text-6xl font-serif leading-none mb-4">"</div>
-                                <p class="text-xl leading-relaxed mb-8">Finally, a network that isn't about selling. I
+                                <div
+                                    class="text-brand-accent text-5xl md:text-6xl font-serif leading-none mb-3 md:mb-4">
+                                    "</div>
+                                <p class="text-lg md:text-xl leading-relaxed mb-6 md:mb-8">Finally, a network that isn't
+                                    about selling. I
                                     found my mentor here in two weeks.</p>
                             </div>
-                            <div class="flex items-center gap-4 border-t border-white/10 pt-6">
+                            <div class="flex items-center gap-3 md:gap-4 border-t border-white/10 pt-4 md:pt-6">
                                 <div
-                                    class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-white font-bold">
+                                    class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-800 flex items-center justify-center text-white font-bold text-sm md:text-base">
                                     SJ</div>
                                 <div>
-                                    <p class="font-bold text-lg">Sarah Jenkins</p>
-                                    <p class="text-sm text-gray-500">UX Designer</p>
+                                    <p class="font-bold text-base md:text-lg">Sarah Jenkins</p>
+                                    <p class="text-xs md:text-sm text-gray-500">UX Designer</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Testimonial 2 -->
                     <div class="min-w-[85%] md:min-w-[400px] snap-center">
-                        <div class="glass-card-new p-10 h-full flex flex-col justify-between">
+                        <div class="glass-card-new p-6 md:p-10 h-full flex flex-col justify-between">
                             <div>
-                                <div class="text-brand-accent text-6xl font-serif leading-none mb-4">"</div>
-                                <p class="text-xl leading-relaxed mb-8">The support I received during my job search was
+                                <div
+                                    class="text-brand-accent text-5xl md:text-6xl font-serif leading-none mb-3 md:mb-4">
+                                    "</div>
+                                <p class="text-lg md:text-xl leading-relaxed mb-6 md:mb-8">The support I received during
+                                    my job search was
                                     incredible. Real people helping real people.</p>
                             </div>
-                            <div class="flex items-center gap-4 border-t border-white/10 pt-6">
+                            <div class="flex items-center gap-3 md:gap-4 border-t border-white/10 pt-4 md:pt-6">
                                 <div
-                                    class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-white font-bold">
+                                    class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-800 flex items-center justify-center text-white font-bold text-sm md:text-base">
                                     DC</div>
                                 <div>
-                                    <p class="font-bold text-lg">David Chen</p>
-                                    <p class="text-sm text-gray-500">Software Engineer</p>
+                                    <p class="font-bold text-base md:text-lg">David Chen</p>
+                                    <p class="text-xs md:text-sm text-gray-500">Software Engineer</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Testimonial 3 -->
                     <div class="min-w-[85%] md:min-w-[400px] snap-center">
-                        <div class="glass-card-new p-10 h-full flex flex-col justify-between">
+                        <div class="glass-card-new p-6 md:p-10 h-full flex flex-col justify-between">
                             <div>
-                                <div class="text-brand-accent text-6xl font-serif leading-none mb-4">"</div>
-                                <p class="text-xl leading-relaxed mb-8">A refreshing break from corporate networking
+                                <div
+                                    class="text-brand-accent text-5xl md:text-6xl font-serif leading-none mb-3 md:mb-4">
+                                    "</div>
+                                <p class="text-lg md:text-xl leading-relaxed mb-6 md:mb-8">A refreshing break from
+                                    corporate networking
                                     events. Genuine connections.</p>
                             </div>
-                            <div class="flex items-center gap-4 border-t border-white/10 pt-6">
+                            <div class="flex items-center gap-3 md:gap-4 border-t border-white/10 pt-4 md:pt-6">
                                 <div
-                                    class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-white font-bold">
+                                    class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-800 flex items-center justify-center text-white font-bold text-sm md:text-base">
                                     PP</div>
                                 <div>
-                                    <p class="font-bold text-lg">Priya P.</p>
-                                    <p class="text-sm text-gray-500">Marketing Lead</p>
+                                    <p class="font-bold text-base md:text-lg">Priya P.</p>
+                                    <p class="text-xs md:text-sm text-gray-500">Marketing Lead</p>
                                 </div>
                             </div>
                         </div>
@@ -693,28 +767,29 @@
         </section>
 
         <!-- Who This Is For (Dark Section) -->
-        <section id="community" class="py-32 bg-[#05050A] text-white relative reveal">
+        <section id="community" class="py-16 md:py-32 bg-[#05050A] text-white relative reveal">
             <div class="container mx-auto px-6 text-center max-w-5xl">
-                <h2 class="text-4xl md:text-5xl font-bold mb-16">Who This Is <span class="text-stroke-white">For</span>
+                <h2 class="text-3xl md:text-5xl font-bold mb-10 md:mb-16">Who This Is <span
+                        class="text-stroke-white">For</span>
                 </h2>
-                <div class="flex flex-wrap justify-center gap-4 mb-16">
+                <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 md:mb-16">
                     <div
-                        class="px-8 py-4 rounded-full border border-white/10 hover:border-brand-accent bg-white/5 text-gray-300 text-xl font-light transition-all cursor-default">
+                        class="px-5 py-2 md:px-8 md:py-4 rounded-full border border-white/10 hover:border-brand-accent bg-white/5 text-gray-300 text-sm md:text-xl font-light transition-all cursor-default">
                         Students & Graduates</div>
                     <div
-                        class="px-8 py-4 rounded-full border border-white/10 hover:border-brand-accent bg-white/5 text-gray-300 text-xl font-light transition-all cursor-default">
+                        class="px-5 py-2 md:px-8 md:py-4 rounded-full border border-white/10 hover:border-brand-accent bg-white/5 text-gray-300 text-sm md:text-xl font-light transition-all cursor-default">
                         Job Seekers</div>
                     <div
-                        class="px-8 py-4 rounded-full border border-white/10 hover:border-brand-accent bg-white/5 text-gray-300 text-xl font-light transition-all cursor-default">
+                        class="px-5 py-2 md:px-8 md:py-4 rounded-full border border-white/10 hover:border-brand-accent bg-white/5 text-gray-300 text-sm md:text-xl font-light transition-all cursor-default">
                         Entrepreneurs</div>
                     <div
-                        class="px-8 py-4 rounded-full border border-white/10 hover:border-brand-accent bg-white/5 text-gray-300 text-xl font-light transition-all cursor-default">
+                        class="px-5 py-2 md:px-8 md:py-4 rounded-full border border-white/10 hover:border-brand-accent bg-white/5 text-gray-300 text-sm md:text-xl font-light transition-all cursor-default">
                         Mentors</div>
                     <div
-                        class="px-8 py-4 rounded-full border border-white/10 hover:border-brand-accent bg-white/5 text-gray-300 text-xl font-light transition-all cursor-default">
+                        class="px-5 py-2 md:px-8 md:py-4 rounded-full border border-white/10 hover:border-brand-accent bg-white/5 text-gray-300 text-sm md:text-xl font-light transition-all cursor-default">
                         Industry Experts</div>
                 </div>
-                <p class="text-3xl md:text-4xl font-display font-medium leading-tight text-white">
+                <p class="text-xl md:text-4xl font-display font-medium leading-tight text-white">
                     "If you believe in helping others while building your own professional journey, <span
                         class="text-brand-accent-pink">you belong here.</span>"
                 </p>
@@ -722,102 +797,104 @@
         </section>
 
         <!-- How It Works (Timeline) - KEEP WHITE for Contrast -->
-        <section class="py-32 relative bg-white text-black reveal">
+        <section class="py-16 md:py-32 relative bg-white text-black reveal">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl md:text-5xl font-bold mb-20 text-center">How It <span
+                <h2 class="text-3xl md:text-5xl font-bold mb-12 md:mb-20 text-center">How It <span
                         class="text-stroke-black">Works</span></h2>
 
-                <div class="grid md:grid-cols-4 gap-12 relative">
+                <div class="grid md:grid-cols-4 gap-8 md:gap-12 relative">
                     <!-- Line -->
                     <div
                         class="hidden md:block absolute top-[4.5rem] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-accent to-transparent opacity-50 z-0">
                     </div>
 
                     <!-- Steps -->
-                    <div class="relative group text-center pt-8 z-10">
+                    <div class="relative group text-center pt-6 md:pt-8 z-10">
                         <div
-                            class="w-20 h-20 mx-auto bg-black border-2 border-brand-accent rounded-full flex items-center justify-center text-xl font-bold text-brand-accent relative">
+                            class="w-12 h-12 md:w-20 md:h-20 mx-auto bg-black border-2 border-brand-accent rounded-full flex items-center justify-center text-base md:text-xl font-bold text-brand-accent relative">
                             1
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 mt-8">Join</h3>
-                        <p class="text-gray-600 font-light">Sign up with your professional details.</p>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 mt-6 md:mt-8">Join</h3>
+                        <p class="text-sm md:text-base text-gray-600 font-light">Sign up with your professional details.
+                        </p>
                     </div>
-                    <div class="relative group text-center pt-8 z-10">
+                    <div class="relative group text-center pt-6 md:pt-8 z-10">
                         <div
-                            class="w-20 h-20 mx-auto bg-black border-2 border-brand-accent rounded-full flex items-center justify-center text-xl font-bold text-brand-accent relative">
+                            class="w-12 h-12 md:w-20 md:h-20 mx-auto bg-black border-2 border-brand-accent rounded-full flex items-center justify-center text-base md:text-xl font-bold text-brand-accent relative">
                             2
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 mt-8">Profile</h3>
-                        <p class="text-gray-600 font-light">Show who you are and what you need.</p>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 mt-6 md:mt-8">Profile</h3>
+                        <p class="text-sm md:text-base text-gray-600 font-light">Show who you are and what you need.</p>
                     </div>
-                    <div class="relative group text-center pt-8 z-10">
+                    <div class="relative group text-center pt-6 md:pt-8 z-10">
                         <div
-                            class="w-20 h-20 mx-auto bg-black border-2 border-brand-accent rounded-full flex items-center justify-center text-xl font-bold text-brand-accent relative">
+                            class="w-12 h-12 md:w-20 md:h-20 mx-auto bg-black border-2 border-brand-accent rounded-full flex items-center justify-center text-base md:text-xl font-bold text-brand-accent relative">
                             3
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 mt-8">Connect</h3>
-                        <p class="text-gray-600 font-light">Engage with members and discussions.</p>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 mt-6 md:mt-8">Connect</h3>
+                        <p class="text-sm md:text-base text-gray-600 font-light">Engage with members and discussions.
+                        </p>
                     </div>
-                    <div class="relative group text-center pt-8 z-10">
+                    <div class="relative group text-center pt-6 md:pt-8 z-10">
                         <div
-                            class="w-20 h-20 mx-auto bg-black border-2 border-brand-accent rounded-full flex items-center justify-center text-xl font-bold text-brand-accent relative">
+                            class="w-12 h-12 md:w-20 md:h-20 mx-auto bg-black border-2 border-brand-accent rounded-full flex items-center justify-center text-base md:text-xl font-bold text-brand-accent relative">
                             4
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 mt-8">Support</h3>
-                        <p class="text-gray-600 font-light">Give back and help others grow.</p>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 mt-6 md:mt-8">Support</h3>
+                        <p class="text-sm md:text-base text-gray-600 font-light">Give back and help others grow.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FAQ Section -->
-        <section class="py-24 bg-gray-50 reveal">
+        <section class="py-16 md:py-24 bg-gray-50 reveal">
             <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center">Frequently Asked <span
+                <h2 class="text-3xl md:text-5xl font-bold mb-10 md:mb-12 text-center">Frequently Asked <span
                         class="text-brand-accent-pink">Questions</span></h2>
 
-                <div class="space-y-4">
+                <div class="space-y-3 md:space-y-4">
                     <!-- Q1 -->
                     <details
-                        class="group bg-white border border-black/5 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg">
-                        <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-                            <span class="text-xl font-bold">Is there a cost to join?</span>
-                            <span class="text-2xl transition-transform group-open:rotate-45">+</span>
+                        class="group bg-white border border-black/5 rounded-xl md:rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg">
+                        <summary class="flex justify-between items-center p-4 md:p-6 cursor-pointer list-none">
+                            <span class="text-lg md:text-xl font-bold">Is there a cost to join?</span>
+                            <span class="text-xl md:text-2xl transition-transform group-open:rotate-45">+</span>
                         </summary>
-                        <div class="p-6 pt-0 text-gray-600 text-lg leading-relaxed">
+                        <div class="p-4 md:p-6 pt-0 text-gray-600 text-base md:text-lg leading-relaxed">
                             No, Professional Networking is 100% free and volunteer-led.
                         </div>
                     </details>
                     <!-- Q2 -->
                     <details
-                        class="group bg-white border border-black/5 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg">
-                        <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-                            <span class="text-xl font-bold">Can students join?</span>
-                            <span class="text-2xl transition-transform group-open:rotate-45">+</span>
+                        class="group bg-white border border-black/5 rounded-xl md:rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg">
+                        <summary class="flex justify-between items-center p-4 md:p-6 cursor-pointer list-none">
+                            <span class="text-lg md:text-xl font-bold">Can students join?</span>
+                            <span class="text-xl md:text-2xl transition-transform group-open:rotate-45">+</span>
                         </summary>
-                        <div class="p-6 pt-0 text-gray-600 text-lg leading-relaxed">
+                        <div class="p-4 md:p-6 pt-0 text-gray-600 text-base md:text-lg leading-relaxed">
                             Absolutely. We welcome students, graduates, and seasoned professionals alike.
                         </div>
                     </details>
                     <!-- Q3 -->
                     <details
-                        class="group bg-white border border-black/5 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg">
-                        <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-                            <span class="text-xl font-bold">Is this a recruitment agency?</span>
-                            <span class="text-2xl transition-transform group-open:rotate-45">+</span>
+                        class="group bg-white border border-black/5 rounded-xl md:rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg">
+                        <summary class="flex justify-between items-center p-4 md:p-6 cursor-pointer list-none">
+                            <span class="text-lg md:text-xl font-bold">Is this a recruitment agency?</span>
+                            <span class="text-xl md:text-2xl transition-transform group-open:rotate-45">+</span>
                         </summary>
-                        <div class="p-6 pt-0 text-gray-600 text-lg leading-relaxed">
+                        <div class="p-4 md:p-6 pt-0 text-gray-600 text-base md:text-lg leading-relaxed">
                             No. We are a community platform, not a hiring firm.
                         </div>
                     </details>
                     <!-- Q4 -->
                     <details
-                        class="group bg-white border border-black/5 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg">
-                        <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-                            <span class="text-xl font-bold">How do I get involved?</span>
-                            <span class="text-2xl transition-transform group-open:rotate-45">+</span>
+                        class="group bg-white border border-black/5 rounded-xl md:rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg">
+                        <summary class="flex justify-between items-center p-4 md:p-6 cursor-pointer list-none">
+                            <span class="text-lg md:text-xl font-bold">How do I get involved?</span>
+                            <span class="text-xl md:text-2xl transition-transform group-open:rotate-45">+</span>
                         </summary>
-                        <div class="p-6 pt-0 text-gray-600 text-lg leading-relaxed">
+                        <div class="p-4 md:p-6 pt-0 text-gray-600 text-base md:text-lg leading-relaxed">
                             Simply sign up, join the WhatsApp group, and start connecting!
                         </div>
                     </details>
@@ -826,60 +903,68 @@
         </section>
 
         <!-- Get Involved - KEEP WHITE -->
-        <section class="py-24 relative border-t border-black/5 bg-white text-black reveal">
+        <section class="py-16 md:py-24 relative border-t border-black/5 bg-white text-black reveal">
             <div class="container mx-auto px-6 max-w-5xl">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                     <div>
-                        <h2 class="text-4xl md:text-5xl font-bold mb-6">Get <span
+                        <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6">Get <span
                                 class="text-stroke-black">Involved</span></h2>
-                        <p class="text-xl text-gray-600 mb-8">There are many ways to be part of the community:</p>
+                        <p class="text-lg md:text-xl text-gray-600 mb-6 md:mb-8">There are many ways to be part of the
+                            community:</p>
 
-                        <ul class="space-y-6">
-                            <li class="flex items-start gap-4">
+                        <ul class="space-y-4 md:space-y-6">
+                            <li class="flex items-start gap-3 md:gap-4">
                                 <div
-                                    class="mt-1 w-6 h-6 rounded-sm bg-brand-accent flex items-center justify-center text-black flex-shrink-0">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    class="mt-1 w-5 h-5 md:w-6 md:h-6 rounded-sm bg-brand-accent flex items-center justify-center text-black flex-shrink-0">
+                                    <svg class="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4"
                                             d="M5 13l4 4L19 7"></path>
                                     </svg>
                                 </div>
-                                <span class="text-lg text-black">Join as a member and start connecting</span>
+                                <span class="text-base md:text-lg text-black">Join as a member and start
+                                    connecting</span>
                             </li>
-                            <li class="flex items-start gap-4">
+                            <li class="flex items-start gap-3 md:gap-4">
                                 <div
-                                    class="mt-1 w-6 h-6 rounded-sm bg-brand-accent flex items-center justify-center text-black flex-shrink-0">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    class="mt-1 w-5 h-5 md:w-6 md:h-6 rounded-sm bg-brand-accent flex items-center justify-center text-black flex-shrink-0">
+                                    <svg class="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4"
                                             d="M5 13l4 4L19 7"></path>
                                     </svg>
                                 </div>
-                                <span class="text-lg text-black">Share job opportunities or resources</span>
+                                <span class="text-base md:text-lg text-black">Share job opportunities or
+                                    resources</span>
                             </li>
-                            <li class="flex items-start gap-4">
+                            <li class="flex items-start gap-3 md:gap-4">
                                 <div
-                                    class="mt-1 w-6 h-6 rounded-sm bg-brand-accent flex items-center justify-center text-black flex-shrink-0">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    class="mt-1 w-5 h-5 md:w-6 md:h-6 rounded-sm bg-brand-accent flex items-center justify-center text-black flex-shrink-0">
+                                    <svg class="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4"
                                             d="M5 13l4 4L19 7"></path>
                                     </svg>
                                 </div>
-                                <span class="text-lg text-black">Volunteer as a mentor</span>
+                                <span class="text-base md:text-lg text-black">Volunteer as a mentor</span>
                             </li>
-                            <li class="flex items-start gap-4">
+                            <li class="flex items-start gap-3 md:gap-4">
                                 <div
-                                    class="mt-1 w-6 h-6 rounded-sm bg-brand-accent flex items-center justify-center text-black flex-shrink-0">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    class="mt-1 w-5 h-5 md:w-6 md:h-6 rounded-sm bg-brand-accent flex items-center justify-center text-black flex-shrink-0">
+                                    <svg class="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4"
                                             d="M5 13l4 4L19 7"></path>
                                     </svg>
                                 </div>
-                                <span class="text-lg text-black">Help moderate and grow the platform</span>
+                                <span class="text-base md:text-lg text-black">Help moderate and grow the platform</span>
                             </li>
                         </ul>
                     </div>
                     <div class="relative">
-                        <div class="glass-card-new p-8 rounded-3xl text-center">
-                            <p class="text-2xl font-display font-bold leading-tight">"Every contribution helps
+                        <div class="glass-card-new p-6 md:p-8 rounded-2xl md:rounded-3xl text-center">
+                            <p class="text-xl md:text-2xl font-display font-bold leading-tight">"Every contribution
+                                helps
                                 strengthen the network and create more opportunities for everyone."</p>
                         </div>
                     </div>
@@ -888,95 +973,161 @@
         </section>
 
         <!-- CTA -->
-        <section class="py-24 relative overflow-hidden bg-[#05050A] text-white reveal">
+        <section class="py-16 md:py-24 relative overflow-hidden bg-[#05050A] text-white reveal">
             <div class="container mx-auto px-6 relative z-10">
                 <div id="join-container"
-                    class="max-w-4xl mx-auto bg-gradient-to-b from-white/10 to-transparent border border-white/10 rounded-3xl p-12 text-center shadow-[0_0_50px_rgba(180,247,8,0.05)]">
-                    <h2 class="text-5xl md:text-7xl font-bold mb-8 uppercase tracking-tight text-white">
+                    class="max-w-4xl mx-auto bg-gradient-to-b from-white/10 to-transparent border border-white/10 rounded-2xl md:rounded-3xl p-8 md:p-12 text-center shadow-[0_0_50px_rgba(180,247,8,0.05)]">
+                    <h2 class="text-4xl md:text-7xl font-bold mb-6 md:mb-8 uppercase tracking-tight text-white">
                         Ready to <span class="text-brand-accent">Join?</span>
                     </h2>
-                    <p class="text-xl text-gray-400 mb-12">Be part of something meaningful.</p>
-                    <form id="joinForm" class="max-w-md mx-auto space-y-4">
-                        <input type="text" placeholder="Your Name" required
-                            class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-accent transition-colors shadow-inner">
-                        <input type="email" placeholder="Your Email" required
-                            class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-accent transition-colors shadow-inner">
-                        <button type="submit" class="w-full btn-primary mt-4">Join Professional Networking
+                    <p class="text-lg md:text-xl text-gray-400 mb-8 md:mb-12">Be part of something meaningful.</p>
+                    <form id="joinForm" class="max-w-md mx-auto space-y-3 md:space-y-4">
+                        <input type="text" placeholder="Your Name *" required
+                            class="w-full px-5 py-3 md:px-6 md:py-4 bg-white/5 border border-white/10 rounded-lg md:rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-accent transition-colors shadow-inner">
+
+                        <input type="email" placeholder="Your Email *" required
+                            class="w-full px-5 py-3 md:px-6 md:py-4 bg-white/5 border border-white/10 rounded-lg md:rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-accent transition-colors shadow-inner">
+
+                        <input type="tel" placeholder="Contact Number *" required
+                            class="w-full px-5 py-3 md:px-6 md:py-4 bg-white/5 border border-white/10 rounded-lg md:rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-accent transition-colors shadow-inner">
+
+                        <div class="relative">
+                            <select required
+                                class="w-full px-5 py-3 md:px-6 md:py-4 bg-white/5 border border-white/10 rounded-lg md:rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-accent transition-colors shadow-inner appearance-none cursor-pointer">
+                                <option value="" disabled selected class="text-gray-500">Select Your Field *</option>
+                                <option value="technology" class="text-black">Technology & Engineering</option>
+                                <option value="creative" class="text-black">Creative & Design</option>
+                                <option value="business" class="text-black">Business & Strategy</option>
+                                <option value="science" class="text-black">Science & Healthcare</option>
+                                <option value="student" class="text-black">Student / Education</option>
+                                <option value="other" class="text-black">Other</option>
+                            </select>
+                            <div
+                                class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-gray-500">
+                                <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full btn-primary mt-3 md:mt-4">Join Professional Networking
                             Today</button>
                     </form>
                 </div>
             </div>
         </section>
 
-        <!-- Mega Footer -->
-        <footer id="contact" class="bg-[#05050A] text-white pt-24 pb-8 border-t border-white/5 relative z-20">
+        <footer id="contact"
+            class="bg-[#050510] text-white pt-24 pb-12 border-t border-white/5 relative z-20 overflow-hidden">
+            <!-- Background Accent Glow -->
+            <div
+                class="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-brand-accent/5 blur-[120px] pointer-events-none">
+            </div>
+
             <div class="container mx-auto px-6">
-                <!-- Top Section: 4 Columns -->
-                <div class="grid md:grid-cols-4 gap-12 mb-20">
-                    <!-- Col 1: Brand -->
-                    <div class="space-y-6">
-                        <img src="/logo.png" alt="Logo" class="footer-logo">
-                        <p class="text-gray-400 text-lg">Building connections across Australia. A community-first
-                            initiative.</p>
+                <!-- Main Footer Content -->
+                <div class="grid grid-cols-1 lg:grid-cols-6 gap-16 mb-20">
+
+                    <!-- Brand Section -->
+                    <div
+                        class="lg:col-span-2 space-y-10 flex flex-col items-center lg:items-start text-center lg:text-left">
+                        <a href="#" class="footer-zoom-frame">
+                            <img src="logo.png" alt="Logo" class="footer-zoom-img">
+                        </a>
+                        <p class="text-gray-400 text-base leading-relaxed max-w-sm">
+                            Building a stronger, more connected Australia. Join thousands of professionals helping each
+                            other grow.
+                        </p>
+                        <!-- Newsletter Signup -->
+                        <div class="w-full max-w-sm">
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-[#B4F708] mb-4">Stay Informed
+                            </h4>
+                            <form
+                                class="flex border-b border-white/20 pb-2 focus-within:border-[#B4F708] transition-colors">
+                                <input type="email" placeholder="email@address.com"
+                                    class="bg-transparent border-none text-sm w-full focus:ring-0 placeholder:text-gray-600">
+                                <button type="submit"
+                                    class="text-xs font-black uppercase tracking-widest hover:text-[#B4F708] transition-colors">Join</button>
+                            </form>
+                        </div>
                     </div>
 
-                    <!-- Col 2: Quick Links -->
-                    <div>
-                        <h4 class="text-xl font-bold mb-6 text-brand-accent">Quick Links</h4>
-                        <ul class="space-y-4">
-                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-                            <li><a href="#features"
-                                    class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <!-- Links Columns -->
+                    <div class="lg:col-span-4 grid grid-cols-2 md:grid-cols-3 gap-12">
+                        <!-- Navigation -->
+                        <div>
+                            <h4 class="footer-title">Navigation</h4>
+                            <ul class="space-y-4">
+                                <li><a href="#" class="footer-link">Home</a></li>
+                                <li><a href="#about" class="footer-link">Our Mission</a></li>
+                                <li><a href="#features" class="footer-link">Platform Features</a></li>
+                                <li><a href="#industries" class="footer-link">Industry Focus</a></li>
+                            </ul>
+                        </div>
 
-                    <!-- Col 3: Legal -->
-                    <div>
-                        <h4 class="text-xl font-bold mb-6 text-brand-accent">Legal</h4>
-                        <ul class="space-y-4">
-                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-                            </li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of
-                                    Service</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Community
-                                    Guidelines</a></li>
-                        </ul>
-                    </div>
+                        <!-- Resources -->
+                        <div>
+                            <h4 class="footer-title">Community</h4>
+                            <ul class="space-y-4">
+                                <li><a href="#community" class="footer-link">Member Benefits</a></li>
+                                <li><a href="#" class="footer-link">Networking Events</a></li>
+                                <li><a href="#" class="footer-link">Success Stories</a></li>
+                                <li><a href="mailto:hello@professionalnetworking.com.au" class="footer-link">Support
+                                        Hub</a></li>
+                            </ul>
+                        </div>
 
-                    <!-- Col 4: Connect -->
-                    <div>
-                        <h4 class="text-xl font-bold mb-6 text-brand-accent">Connect</h4>
-                        <ul class="space-y-4">
-                            <li><a href="#"
-                                    class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">LinkedIn</a>
-                            </li>
-                            <li><a href="#"
-                                    class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">Twitter
-                                    / X</a></li>
-                            <li><a href="mailto:hello@professionalnetworking.com.au"
-                                    class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">Email
-                                    Us</a></li>
-                        </ul>
+                        <!-- Company -->
+                        <div class="col-span-2 md:col-span-1 border-t border-white/5 pt-12 md:border-0 md:pt-0">
+                            <h4 class="footer-title">Company</h4>
+                            <div class="space-y-6">
+                                <ul class="space-y-4">
+                                    <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                                    <li><a href="#" class="footer-link">Terms of Service</a></li>
+                                    <li><a href="#" class="footer-link">Member Guidelines</a></li>
+                                </ul>
+                                <!-- Social Shortcut -->
+                                <div
+                                    class="flex gap-4 items-center justify-center md:justify-start pt-4 border-t border-white/5 md:border-0">
+                                    <a href="#"
+                                        class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:border-[#B4F708] hover:text-[#B4F708] transition-all"><i
+                                            class="fab fa-linkedin-in text-xs"></i></a>
+                                    <a href="#"
+                                        class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:border-[#B4F708] hover:text-[#B4F708] transition-all"><i
+                                            class="fab fa-instagram text-xs"></i></a>
+                                    <a href="#"
+                                        class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:border-[#B4F708] hover:text-[#B4F708] transition-all"><i
+                                            class="fab fa-twitter text-xs"></i></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Bottom Bar -->
-                <div
-                    class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-                    <div>
-                        &copy; 2026 Professional Networking.
-                    </div>
-                    <div class="flex items-center gap-1">
-                        Made with <span class="text-red-500">❤️</span> in Australia
+                <div class="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p class="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest">&copy; 2026 Professional
+                        Networking AU. All rights reserved.</p>
+                    <div class="flex items-center gap-2 group">
+                        <span class="text-[10px] text-gray-600 uppercase tracking-widest">Digital Presence By</span>
+                        <a href="https://sydneyleads.com.au/" target="_blank" rel="noopener noreferrer"
+                            class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-[#B4F708] transition-colors flex items-center gap-1">
+                            Sydney Leads <i class="fas fa-external-link-alt text-[8px]"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </footer>
 
     </main>
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="fixed bottom-8 right-8 z-[60] w-12 h-12 bg-white border-2 border-black text-black flex items-center justify-center translate-y-24 opacity-0 transition-all duration-300 hover:bg-[#B4F708] hover:-translate-y-1 shadow-[4px_4px_0px_0px_black]">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script type="module" src="./main.js"></script>
 </body>
 
