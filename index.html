@@ -13,30 +13,63 @@
 <body class="relative bg-brand-base overflow-x-hidden">
     <!-- Navigation -->
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 bg-gray-50/95 backdrop-blur-xl border-b-2 border-black/10 shadow-xl navbar-fresh"
-        id="main-nav">
-        <a href="#" class="logo-zoom-frame">
-            <img src="logo.webp" alt="Professional Networking" class="logo-zoom-img" />
+    <nav id="main-nav" style="
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 90px; /* Fixed rigid height */
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px; /* Horizontal breathing room */
+        z-index: 9999;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    ">
+        <a href="#" style="
+            display: flex;
+            align-items: center;
+            width: 260px;       /* 1. Reserve specific width */
+            min-width: 260px;   /* 2. FORBID shrinking below this size */
+            height: 100%;       /* 3. Fill the bar height */
+            flex-shrink: 0;     /* 4. Do not let flexbox squash this */
+            text-decoration: none;
+        ">
+            <img src="logo.webp" alt="Professional Networking" style="
+                width: 100%;
+                height: 65px;          /* Clean internal height */
+                object-fit: contain;   /* Perfect scaling (no cropping) */
+                object-position: left; /* Align logo to the left */
+                display: block;
+            ">
         </a>
-        <div class="hidden md:flex space-x-10 font-bold text-sm uppercase tracking-widest text-gray-600">
-            <a href="#about" class="hover:text-brand-accent transition-colors">Mission</a>
-            <a href="#features" class="hover:text-brand-accent transition-colors">Features</a>
-            <a href="#industries" class="hover:text-brand-accent transition-colors">Industries</a>
-            <a href="#community" class="hover:text-brand-accent transition-colors">Community</a>
-            <a href="#contact" class="hover:text-brand-accent transition-colors">Contact</a>
-        </div>
-        <div class="flex items-center gap-4">
-            <button data-target="join-container"
-                class="hidden md:inline-flex px-5 py-1.5 bg-brand-accent hover:bg-white text-black font-black uppercase tracking-widest rounded-none border-2 border-black transition-all duration-300 transform hover:-translate-y-0.5 text-xs items-center justify-center gap-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
-                Login
-            </button>
-            <button id="mobile-menu-btn"
-                class="md:hidden text-2xl text-black hover:text-brand-accent transition-colors focus:outline-none p-1">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
-                </svg>
-            </button>
+
+        <div style="
+            display: flex; 
+            align-items: center; 
+            gap: 30px; 
+            font-family: sans-serif; 
+            font-weight: 600; 
+            font-size: 14px;
+        ">
+            <a href="#about" style="text-decoration: none; color: #333; letter-spacing: 0.5px;">MISSION</a>
+            <a href="#features" style="text-decoration: none; color: #333; letter-spacing: 0.5px;">FEATURES</a>
+            <a href="#industries" style="text-decoration: none; color: #333; letter-spacing: 0.5px;">INDUSTRIES</a>
+            <a href="#community" style="text-decoration: none; color: #333; letter-spacing: 0.5px;">COMMUNITY</a>
+            <a href="#contact" style="text-decoration: none; color: #333; letter-spacing: 0.5px;">CONTACT</a>
+
+            <a href="#login" data-target="join-container" style="
+                padding: 12px 28px; 
+                background-color: #ccff00; 
+                color: #000; 
+                text-decoration: none; 
+                font-weight: 800;
+                border: 2px solid #000; 
+                box-shadow: 4px 4px 0px #000;
+                transition: transform 0.1s;
+            ">LOGIN</a>
         </div>
     </nav>
 
