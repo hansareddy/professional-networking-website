@@ -98,8 +98,8 @@ nav a:hover::after {
 
 @media (min-width: 768px) {
     .logo-zoom-frame {
-        height: 72px;
-        width: 320px;
+        height: 36px;
+        width: 180px;
     }
 }
 
