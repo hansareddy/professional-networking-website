@@ -1,3 +1,8 @@
+/* 
+   NOTE: If your editor warns about "Unknown at rule @tailwind" or "@apply", 
+   this is a harmless linting issue. These rules are processed by PostCSS.
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -5,13 +10,13 @@
 @tailwind utilities;
 
 :root {
-    background-color: #05050A;
-    color: #F9FAFB;
+    background-color: #FFFFFF;
+    color: #000000;
 }
 
 body {
     font-family: 'Space Grotesk', sans-serif;
-    @apply bg-brand-base text-brand-text antialiased overflow-x-hidden;
+    @apply bg-white text-black antialiased overflow-x-hidden scroll-smooth;
 }
 
 h1,
@@ -24,63 +29,139 @@ h6 {
     font-weight: 700;
 }
 
-/* Architectural Dot Grid Overlay */
+/* Architectural Dot Grid Overlay - White Mode */
 .bg-architectural-grid {
-    background-image: linear-gradient(#ffffff03 1px, transparent 1px), linear-gradient(90deg, #ffffff03 1px, transparent 1px);
-    background-size: 50px 50px;
+    background-image: linear-gradient(#00000008 1.5px, transparent 1.5px), linear-gradient(90deg, #00000008 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+}
+
+/* Navigation Enhancement */
+nav a {
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #B4F708;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+#main-nav {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav a {
+    @apply text-gray-800 font-extrabold;
+    letter-spacing: 0.05em;
+}
+
+.footer-logo {
+    @apply h-24 w-auto object-contain transition-all duration-500;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+}
+
+.footer-logo:hover {
+    filter: brightness(1) invert(0);
+    opacity: 1;
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0 15px rgba(180, 247, 8, 0.4));
 }
 
 /* Subtle Text Outline */
 .text-stroke-subtle {
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);
     color: transparent;
 }
 
-.text-stroke-thick {
-    -webkit-text-stroke: 2px #C1FF00;
+.text-stroke-black {
+    -webkit-text-stroke: 1.5px black;
     color: transparent;
 }
 
-/* Hybrid Nisozkit Card - Premium Tech */
+/* Hybrid King Kong Card - Dark Premium */
 .glass-card-new {
-    @apply bg-[#13131A] border border-white/5 transition-all duration-500 relative overflow-hidden;
+    @apply bg-[#0A0A0A] border border-white/10 transition-all duration-300 relative overflow-hidden;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
 }
 
+.glass-card-new h3 {
+    @apply text-white transition-colors duration-300;
+}
+
+.glass-card-new p {
+    @apply text-gray-400 transition-colors duration-300;
+}
+
+/* Base Icon Color (White on Dark - Default) */
+.glass-card-new svg {
+    @apply text-white transition-colors duration-300;
+}
+
+/* Interactive Swap */
 .glass-card-new:hover {
-    @apply bg-black border-brand-accent -translate-y-2;
-    box-shadow: 0 20px 50px -10px rgba(193, 255, 0, 0.15);
+    @apply bg-[#111111] -translate-y-2 border-[#B4F708];
+    box-shadow: 0 20px 40px -10px rgba(180, 247, 8, 0.1);
+    /* Neon Glow Shadow */
 }
 
-/* Card Inner Highlight */
+.glass-card-new:hover h3 {
+    @apply text-white;
+}
+
+.glass-card-new:hover p {
+    @apply text-gray-300;
+}
+
+.glass-card-new:hover .text-brand-accent {
+    color: #B4F708 !important;
+}
+
+/* Force icon to Neon Green on hover */
+.glass-card-new:hover svg {
+    @apply text-[#B4F708];
+}
+
+/* Card Inner Highlight (Neon Sidebar) */
 .glass-card-new::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 0px;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    background: #B4F708;
+    transition: width 0.3s ease;
 }
 
 .glass-card-new:hover::before {
-    opacity: 1;
+    width: 6px;
+    /* Thick Neon Bar on Hover */
 }
 
-/* Buttons - Direct Response Style */
+/* Buttons - Brutalist Authority Style */
 .btn-primary {
-    @apply px-10 py-5 bg-brand-accent hover:bg-white text-black font-black uppercase tracking-widest rounded-sm transition-all duration-300 transform hover:-translate-y-1 text-xl inline-flex items-center justify-center gap-2;
-    box-shadow: 5px 5px 0px rgba(255, 255, 255, 0.2);
+    @apply px-10 py-5 bg-brand-accent hover:bg-[#D4F844] text-black font-black uppercase tracking-widest rounded-none transition-all duration-200 transform hover:-translate-y-1 text-xl inline-flex items-center justify-center gap-2 border-2 border-black;
+    box-shadow: 6px 6px 0px 0px #000000;
+    /* Hard Shadow */
 }
 
 .btn-primary:hover {
-    box-shadow: 8px 8px 0px rgba(255, 255, 255, 0.4);
+    box-shadow: 10px 10px 0px 0px #000000;
 }
 
 .skew-y-3 {
@@ -92,7 +173,7 @@ h6 {
 }
 
 .btn-ghost {
-    @apply px-10 py-5 bg-transparent border border-white/20 hover:border-white text-white font-bold rounded-full transition-all duration-300 hover:bg-white/5 active:scale-95 text-lg inline-flex items-center justify-center;
+    @apply px-10 py-5 bg-transparent border border-black/20 hover:border-black text-black font-bold rounded-none transition-all duration-300 hover:bg-black/5 active:scale-95 text-lg inline-flex items-center justify-center;
 }
 
 /* Custom Scrollbar */
@@ -101,7 +182,7 @@ h6 {
 }
 
 ::-webkit-scrollbar-track {
-    background: #05050A;
+    background: #F3F4F6;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -111,4 +192,58 @@ h6 {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #7C3AED;
+}
+
+/* Dark Section Utilities */
+.glass-card-dark {
+    @apply bg-[#0A0A0A] border-2 border-white/10 transition-all duration-300 relative overflow-hidden;
+}
+
+.glass-card-dark:hover {
+    @apply bg-zinc-900 -translate-y-2 border-brand-accent;
+    box-shadow: 0 20px 40px -10px rgba(180, 247, 8, 0.1);
+}
+
+.glass-card-dark h3 {
+    @apply text-white;
+}
+
+.glass-card-dark p {
+    @apply text-gray-400;
+}
+
+.text-stroke-white {
+    -webkit-text-stroke: 1.5px white;
+    color: transparent;
+}
+
+/* Reveal on Scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.reveal.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
 }

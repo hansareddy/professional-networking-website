@@ -1,16 +1,37 @@
 import './style.css'
 
 // Add scroll effects if needed
+// Add scroll effects
 window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 50) {
-        nav.classList.add('bg-brand-base/80', 'py-4');
-        nav.classList.remove('bg-brand-base/50', 'py-6');
+    const nav = document.getElementById('main-nav');
+    const logo = document.getElementById('nav-logo');
+    if (window.scrollY > 20) {
+        nav.classList.add('py-1', 'bg-white/100', 'shadow-2xl');
+        nav.classList.remove('py-2', 'bg-gray-50/95', 'shadow-xl');
+        logo.classList.add('h-14');
+        logo.classList.remove('h-20');
     } else {
-        nav.classList.add('bg-brand-base/50', 'py-6');
-        nav.classList.remove('bg-brand-base/80', 'py-4');
+        nav.classList.add('py-2', 'bg-gray-50/95', 'shadow-xl');
+        nav.classList.remove('py-1', 'bg-white/100', 'shadow-2xl');
+        logo.classList.add('h-20');
+        logo.classList.remove('h-14');
     }
 });
+
+// Reveal on Scroll Observer
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.15
+});
+
+revealElements.forEach(el => revealObserver.observe(el));
 
 console.log('Professional Networking Site Initialized');
 
@@ -35,3 +56,20 @@ if (joinForm) {
         `;
     });
 }
+
+// Smooth Scroll for elements with data-target
+document.querySelectorAll('[data-target], a[href^="#"]').forEach(el => {
+    el.addEventListener('click', (e) => {
+        const targetAttr = el.getAttribute('data-target');
+        const hrefAttr = el.getAttribute('href');
+        const targetId = targetAttr || (hrefAttr && hrefAttr.startsWith('#') ? hrefAttr.substring(1) : null);
+
+        if (targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+});

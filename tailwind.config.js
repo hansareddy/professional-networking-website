@@ -9,12 +9,12 @@ export default {
         extend: {
             colors: {
                 brand: {
-                    base: '#0B0B0F',
-                    card: '#16161e',
-                    accent: '#CCFF00', // Nisozkit Neon Green
-                    'accent-pink': '#D4F844', // Secondary Lime
-                    text: '#F9FAFB',
-                    muted: '#9CA3AF',
+                    base: '#FFFFFF', // White Background
+                    card: '#F3F4F6', // Light Gray
+                    accent: '#B4F708', // "Better" Neon Green (Electric Lime)
+                    'accent-pink': '#A3E635', // Secondary Lime Green
+                    text: '#000000', // Black Text
+                    muted: '#4B5563', // Dark Gray
                 }
             },
             fontFamily: {
