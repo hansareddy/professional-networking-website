@@ -103,13 +103,12 @@ nav a:hover::after {
     }
 }
 
-/* The Zoom: Drastically increased and shifted down to crop the bottom */
+/* The Zoom: Balanced for maximum size without clipping */
 .logo-zoom-img {
     position: absolute;
     top: 50%;
     left: 0;
-    transform: translateY(-20%) scale(1.8);
-    /* Changed from -25% to -20% to move it a little more down */
+    transform: translateY(-35%) scale(1.6) !important;
     transform-origin: left center;
     height: 100%;
     width: auto;
@@ -137,8 +136,7 @@ nav a:hover::after {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -20%) scale(1.6);
-    /* Shifted down like header */
+    transform: translate(-50%, -35%) scale(1.5) !important;
     height: 100%;
     width: auto;
     object-fit: contain;
@@ -149,7 +147,7 @@ nav a:hover::after {
 
 @media (max-width: 768px) {
     .footer-zoom-img {
-        transform: translate(-50%, -20%) scale(1.6);
+        transform: translate(-50%, -35%) scale(1.5) !important;
         /* Centered on mobile */
     }
 }
@@ -157,7 +155,7 @@ nav a:hover::after {
 @media (min-width: 768px) {
     .footer-zoom-img {
         left: 0;
-        transform: translateY(-20%) scale(1.6);
+        transform: translateY(-35%) scale(1.5) !important;
         /* Left aligned on desktop */
         left: 0;
     }
