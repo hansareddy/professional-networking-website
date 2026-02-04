@@ -89,8 +89,8 @@ nav a:hover::after {
 
 /* Modern Logo Architecture */
 .logo-zoom-frame {
-    height: 54px;
-    width: 280px;
+    height: 27px;
+    width: 140px;
     overflow: hidden;
     position: relative;
     flex-shrink: 0;
