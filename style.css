@@ -109,8 +109,8 @@ nav a:hover::after {
     position: absolute;
     top: 50%;
     left: 0;
-    transform: translateY(-25%) scale(1.8) !important;
-    /* Restored to 'Perfect' local setting */
+    transform: translateY(-25%) scale(1.8) rotate(0.02deg) !important;
+    /* Force Refresh */
     transform-origin: left center;
     height: 100%;
     width: auto;
