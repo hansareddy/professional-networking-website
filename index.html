@@ -14,61 +14,50 @@
     <!-- Navigation -->
     <!-- Navigation -->
     <nav id="main-nav" style="
-        box-sizing: border-box;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 90px; /* Fixed rigid height */
-        background: #ffffff;
+        height: 90px;
+        background: white;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 40px; /* Horizontal breathing room */
+        padding: 0 40px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         z-index: 9999;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     ">
         <a href="#" style="
             display: flex;
+            width: 280px;        /* Forces strict width */
+            min-width: 280px;    /* Prevents shrinking */
+            height: 70px;        /* Fixed height */
+            flex-shrink: 0;      /* Stops crushing */
             align-items: center;
-            width: 260px;       /* 1. Reserve specific width */
-            min-width: 260px;   /* 2. FORBID shrinking below this size */
-            height: 100%;       /* 3. Fill the bar height */
-            flex-shrink: 0;     /* 4. Do not let flexbox squash this */
             text-decoration: none;
         ">
-            <img src="logo.webp" alt="Professional Networking" style="
+            <img src="logo.webp" alt="Logo" style="
                 width: 100%;
-                height: 65px;          /* Clean internal height */
-                object-fit: contain;   /* Perfect scaling (no cropping) */
-                object-position: left; /* Align logo to the left */
+                height: 100%;
+                object-fit: contain; /* CRITICAL: This stops the logo from being cut off */
                 display: block;
             ">
         </a>
 
-        <div style="
-            display: flex; 
-            align-items: center; 
-            gap: 30px; 
-            font-family: sans-serif; 
-            font-weight: 600; 
-            font-size: 14px;
-        ">
-            <a href="#about" style="text-decoration: none; color: #333; letter-spacing: 0.5px;">MISSION</a>
-            <a href="#features" style="text-decoration: none; color: #333; letter-spacing: 0.5px;">FEATURES</a>
-            <a href="#industries" style="text-decoration: none; color: #333; letter-spacing: 0.5px;">INDUSTRIES</a>
-            <a href="#community" style="text-decoration: none; color: #333; letter-spacing: 0.5px;">COMMUNITY</a>
-            <a href="#contact" style="text-decoration: none; color: #333; letter-spacing: 0.5px;">CONTACT</a>
-
+        <div style="display: flex; align-items: center; gap: 30px;">
+            <a href="#about" style="text-decoration: none; color: black; font-weight: 600;">MISSION</a>
+            <a href="#features" style="text-decoration: none; color: black; font-weight: 600;">FEATURES</a>
+            <a href="#industries" style="text-decoration: none; color: black; font-weight: 600;">INDUSTRIES</a>
+            <a href="#community" style="text-decoration: none; color: black; font-weight: 600;">COMMUNITY</a>
+            <a href="#contact" style="text-decoration: none; color: black; font-weight: 600;">CONTACT</a>
             <a href="#login" data-target="join-container" style="
-                padding: 12px 28px; 
-                background-color: #ccff00; 
-                color: #000; 
+                padding: 10px 25px; 
+                background: #ccff00; 
+                color: black; 
+                font-weight: bold; 
                 text-decoration: none; 
-                font-weight: 800;
-                border: 2px solid #000; 
-                box-shadow: 4px 4px 0px #000;
-                transition: transform 0.1s;
+                border: 2px solid black; 
+                box-shadow: 4px 4px 0px black;
             ">LOGIN</a>
         </div>
     </nav>
